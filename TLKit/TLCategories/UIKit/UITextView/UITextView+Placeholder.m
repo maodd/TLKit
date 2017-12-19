@@ -13,7 +13,7 @@ static const char *tt_placeholderTextView = "tt_placeholderTextView";
 
 @implementation UITextView (Placeholder)
 
-- (UITextView *)placeHolderTextView
+- (UITextView *)placeholderTextView
 {
     UITextView *textView = objc_getAssociatedObject(self, tt_placeholderTextView);
     if (!textView) {
@@ -34,23 +34,23 @@ static const char *tt_placeholderTextView = "tt_placeholderTextView";
 
 - (void)setPlaceholder:(NSString *)placeholder
 {
-    self.placeHolderTextView.text = placeholder;
+    self.placeholderTextView.text = placeholder;
 }
 - (NSString *)placeholder
 {
-    return self.placeHolderTextView.text;
+    return self.placeholderTextView.text;
 }
 
 #pragma mark - # Delegate
 - (void)textViewDidBeginEditing:(NSNotification *)noti
 {
-    self.placeHolderTextView.hidden = YES;
+    self.placeholderTextView.hidden = YES;
 }
 
 - (void)textViewDidEndEditing:(UITextView *)noti
 {
     if (self.text && [self.text isEqualToString:@""]) {
-        self.placeHolderTextView.hidden = NO;
+        self.placeholderTextView.hidden = NO;
     }
 }
 
